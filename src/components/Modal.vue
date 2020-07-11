@@ -1,15 +1,9 @@
 <template>
 <div class="Main">
-  <div class="Figure">
-    <h1>{{currentUser.currency}} {{currentUser.debt}}</h1>    
+  <div class="Model">
+     
   </div>
-  <div class="Buttons-Panel">
-      <button class="Button" @click="$emit('show-Modal', 10)">Add</button>
-      <button class="Button" @click="disputeCharge">Dispute</button>
-      <button class="Button" @click="changeCurrency">Currency</button>
-      <button class="Button" @click="viewHistory">History</button>
-      
-  </div>
+  
 </div>
 </template>
 
@@ -17,10 +11,13 @@
 export default {
   name: "Figure",
   props: 
-    ["currentUser", "control"]
+    ["currentUser"]
   ,
   methods: {
-
+    addCharge() {
+      console.log("Woah, Why am'I so generous all the time");
+      this.currentUser.debt += 10;
+    },
 
     disputeCharge() {
       console.log("False. All Charges are indisputable");

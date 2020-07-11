@@ -3,8 +3,8 @@
   <div id="app">
     
 
-    <NotificationPanel v-bind:currentUser="user"/>
-    <Figure/>
+    <NotificationPanel v-bind:currentUser="user" v-bind:control="controls"/>
+    <Figure v-bind:currentUser="user" v-bind:control="controls" v-on:show-Modal="addCharge"/>
 
     <!-- <Figure debt="2000.00" unit= "$"/> -->
 
@@ -24,6 +24,10 @@ export default {
   },
   data() {
     return {
+      controls:
+      {
+        AddChargeID: 0
+      },
       user:
         {
           firstName: 'Daniel',
@@ -32,6 +36,18 @@ export default {
           currency: '$',
           initials: 'D.H'
         }
+    }
+  },
+  methods:
+  {
+    addCharge(id) {
+      // Bring up Modal
+      // Debt Displayed
+      // Combobox for currency
+      // Amount
+      // Add, Cancel and X buttons
+      console.log("Woah, Why am'I so generous all the time");
+      this.user.debt += id;
     }
   }
 };
